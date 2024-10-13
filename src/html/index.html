@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerson App</title>
+  <link href="../style/global.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css" rel="stylesheet">
+</head>
+<body>
+  <main class="chat-container">
+    <section id="respostaChat" class="chat-flow">
+      Aguardando...
+    </section>
+    <section class="input-area">
+      <textarea id="inputTexto" class="input-chat" rows="1" placeholder="Digite o termo para confirmar as traduções"></textarea>
+      <button id="enviarBtn">
+        <i data-lucide="send" class="icone-botao"></i>
+      </button>
+    </section>
+  </main>
+  <script src="../js/main.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
