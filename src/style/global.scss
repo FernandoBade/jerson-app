@@ -2,109 +2,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Zain:wght@200;300;400;700;800&display=swap');
 
 :root {
-  /* Cores principais */
-  --fundo-default: #282a36;
-  --fundo-claro: #3c3e4f;
-  --fundo-dark: #1c1d26;
+	/* Cores principais */
+	--fundo-default: #282a36;
+	--fundo-claro: #3c3e4f;
+	--fundo-dark: #1c1d26;
 
-  --offwhite-default: #f8f8f2;
-  --offwhite-light: #ffffff;
-  --offwhite-dark: #e0e0d4;
+	--offwhite-default: #f8f8f2;
+	--offwhite-light: #ffffff;
+	--offwhite-dark: #e0e0d4;
 
-  --cinzaAzulado-default: #6272a4;
-  --cinzaAzulado-light: #7f8abf;
-  --cinzaAzulado-dark: #4b5980;
+	--cinzaAzulado-default: #6272a4;
+	--cinzaAzulado-light: #7f8abf;
+	--cinzaAzulado-dark: #4b5980;
 
-  --ciano-default: #8be9fd;
-  --ciano-light: #a4f2ff;
-  --ciano-dark: #6acde8;
+	--ciano-default: #8be9fd;
+	--ciano-light: #a4f2ff;
+	--ciano-dark: #6acde8;
 
-  --verde-default: #50fa7b;
-  --verde-light: #73ffa0;
-  --verde-dark: #3ad95e;
+	--verde-default: #50fa7b;
+	--verde-light: #73ffa0;
+	--verde-dark: #3ad95e;
 
-  --laranja-default: #ffb86c;
-  --laranja-light: #ffcc99;
-  --laranja-dark: #e69a50;
+	--laranja-default: #ffb86c;
+	--laranja-light: #ffcc99;
+	--laranja-dark: #e69a50;
 
-  --rosa-default: #ff79c6;
-  --rosa-light: #ff9dd5;
-  --rosa-dark: #e65aa9;
+	--rosa-default: #ff79c6;
+	--rosa-light: #ff9dd5;
+	--rosa-dark: #e65aa9;
 
-  --roxo-default: #bd93f9;
-  --roxo-light: #d3b4ff;
-  --roxo-dark: #9b76e0;
+	--roxo-default: #bd93f9;
+	--roxo-light: #d3b4ff;
+	--roxo-dark: #9b76e0;
 
-  --vermelho-default: #ff5555;
-  --vermelho-light: #ff7f7f;
-  --vermelho-dark: #e63b3b;
+	--vermelho-default: #ff5555;
+	--vermelho-light: #ff7f7f;
+	--vermelho-dark: #e63b3b;
 
-  --amarelo-default: #f1fa8c;
-  --amarelo-light: #fcffb2;
-  --amarelo-dark: #d8e374;
+	--amarelo-default: #f1fa8c;
+	--amarelo-light: #fcffb2;
+	--amarelo-dark: #d8e374;
 
-  --fonte-principal: 'Zain', sans-serif;
-  --fonte-secundaria: 'Outfit', sans-serif;
+	--fonte-principal: 'Zain', sans-serif;
+	--fonte-secundaria: 'Outfit', sans-serif;
 }
 
 /* Estilos globais */
 body {
-  background-color: var(--fundo-default);
-  color: var(--offwhite-default);
-  font-family: var(--fonte-principal);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+	background-color: var(--fundo-default);
+	color: var(--offwhite-default);
+	font-family: var(--fonte-principal);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
 }
 
 h1 {
-  color: var(--cinzaAzulado-default);
-  margin-bottom: 16px;
+	color: var(--cinzaAzulado-default);
+	margin-bottom: 16px;
 }
 
 textarea {
-  background-color: var(--fundo-dark);
-  font-family: var(--font-secundaria);
-  color: var(--offwhite-default);
-  width: 100%;
-  padding: .25rem;
-  border: none;
-  border-radius: 8px;
-  resize: none;
-  outline: none;
-  font-size: 16px;
+	background-color: var(--fundo-dark);
+	font-family: var(--font-secundaria);
+	color: var(--offwhite-default);
+	width: 100%;
+	padding: 0.25rem;
+	border: none;
+	border-radius: 8px;
+	resize: none;
+	outline: none;
+	font-size: 16px;
 }
 
 button {
-  background-color: var(--roxo-default);
-  color: var(--offwhite-default);
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+	background-color: var(--roxo-default);
+	color: var(--offwhite-default);
+	width: 100%;
+	padding: 12px;
+	margin-top: 8px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	cursor: pointer;
 }
 
 button:hover {
-  background-color: var(--roxo-light);
+	background-color: var(--roxo-light);
 }
 
 #modoSelecionado {
-  background-color: var(--fundo-claro);
-  color: var(--offwhite-default);
-  padding: 8px;
-  border-radius: 8px;
+	background-color: var(--fundo-claro);
+	color: var(--offwhite-default);
+	padding: 8px;
+	border-radius: 8px;
 }
 
 #respostaChat {
-  background-color: var(--fundo-claro);
-  color: var(--rosa-default);
-  padding: 16px;
-  border-radius: 8px;
-  margin-top: 16px;
+	background-color: var(--fundo-claro);
+	color: var(--rosa-default);
+	padding: 16px;
+	border-radius: 8px;
+	margin-top: 16px;
 }
