@@ -35,6 +35,7 @@
 	--fonte-principal: 'Zain', sans-serif;
 	--fonte-secundaria: 'Outfit', sans-serif;
 }
+
 * {
 	box-sizing: border-box;
 }
@@ -61,54 +62,72 @@ body {
 	box-sizing: border-box;
 
 	.chat-flow {
-        flex: 1;
-        overflow-y: auto;
-        padding: 1rem;
-        border-radius: .5rem;
-        margin-bottom: .5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        background-color: var(--fundo-default);
+		flex: 1;
+		overflow-y: auto;
+		padding: 1rem;
+		border-radius: .75rem;
+		margin-bottom: .75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		background-color: var(--fundo-default);
 
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--fundo-light);
-            border-radius: 1rem;
-            cursor: pointer;
-        }
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--fundo-light);
+			border-radius: 1rem;
+			cursor: pointer;
+		}
 
-        &::-webkit-scrollbar-track {
-            background: var(--fundo-dark);
-        }
+		&::-webkit-scrollbar-track {
+			background: var(--fundo-dark);
+		}
 
-        &::-webkit-scrollbar {
-            width: 0.25rem;
-        }
-    }
-    
-    .mensagem {
-        max-width: 60%;
-        padding: .5rem 1rem;
-        border-radius: .5rem;
-        font-size: .75rem;
-        line-height: 1.2rem;
-        word-wrap: break-word;
-        max-width: 50%;
-    }
+		&::-webkit-scrollbar {
+			width: 0.25rem;
+		}
+	}
 
-    .mensagem.enviada {
-        background-color: var(--roxo-dark);
-        color: var(--offwhite-default);
-        align-self: flex-end;
-        border-bottom-right-radius: 0;
-    }
+	.mensagem {
+		max-width: 60%;
+		padding: .5rem 1rem;
+		border-radius: .75rem;
+		font-size: .75rem;
+		line-height: 1.2rem;
+		word-wrap: break-word;
+        margin: .75rem 0rem;
+	}
 
-    .mensagem.recebida {
-        background-color: var(--fundo-light);
-        color: var(--offwhite-default);
-        align-self: flex-start;
-        border-bottom-left-radius: 0;
-    }
+	.mensagem.enviada {
+		background-color: var(--roxo-dark);
+		color: var(--offwhite-default);
+		align-self: flex-end;
+		border-bottom-right-radius: 0;
+	}
+
+	.mensagem.recebida {
+		background-color: var(--fundo-light);
+		color: var(--offwhite-default);
+		align-self: flex-start;
+		border-bottom-left-radius: 0;
+	}
+
+	.mensagem.recebida.loading {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.icone-loading {
+		font-size: 1.5rem;
+		color: var(--cinzaAzulado-default);
+		animation: pulsing 1s infinite;
+	}
+
+	@keyframes pulsing {
+		0% { transform: scale(1); opacity: 1; }
+		50% { transform: scale(1.2); opacity: 0.7; }
+		100% { transform: scale(1); opacity: 1; }
+	}
 
 	.input-area {
 		display: flex;
@@ -116,7 +135,7 @@ body {
 		gap: 0.5rem;
 		background-color: var(--fundo-dark);
 		padding: 0.5rem;
-		border-radius: 0.5rem;
+		border-radius: 0.75rem;
 
 		.input-chat {
 			background-color: var(--fundo-dark);
@@ -127,7 +146,7 @@ body {
 			width: 100%;
 			padding: 0.5rem;
 			border: none;
-			border-radius: 0.5rem;
+			border-radius: 0.75rem;
 			outline: none;
 			resize: none;
 			overflow-y: auto;
@@ -135,7 +154,7 @@ body {
 			transition: all 0.25s ease-in-out;
 
 			&::placeholder {
-				color: var(--fundo-light);
+				color: var(--cinzaAzulado-light);
 			}
 
 			&::-webkit-scrollbar {
@@ -145,7 +164,7 @@ body {
 			&::-webkit-scrollbar-thumb {
 				background-color: var(--fundo-light);
 				border-radius: 1rem;
-                cursor: pointer;
+				cursor: pointer;
 			}
 
 			&::-webkit-scrollbar-track {
@@ -176,4 +195,3 @@ body {
 		}
 	}
 }
-

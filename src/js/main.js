@@ -12,11 +12,33 @@ document.addEventListener('DOMContentLoaded', function () {
       rolarParaBaixo();
     }
 
-
     function rolarParaBaixo() {
       respostaChat.scrollTop = respostaChat.scrollHeight;
     }
 
+    function mostrarLoading() {
+        const loadingContainer = document.createElement('div');
+        loadingContainer.classList.add('mensagem', 'recebida');
+        loadingContainer.id = 'loading-container';
+
+        const loadingIcon = document.createElement('img');
+        loadingIcon.src = '../../public/loading.svg';
+        loadingIcon.alt = 'Loading...';
+        loadingIcon.style.width = '1rem';
+        loadingIcon.style.height = '1rem';
+
+        loadingContainer.appendChild(loadingIcon);
+        respostaChat.appendChild(loadingContainer);
+
+        rolarParaBaixo();
+    }
+
+    function removerLoading() {
+        const loadingContainer = document.getElementById('loading-container');
+        if (loadingContainer) {
+            loadingContainer.remove();
+        }
+    }
 
     const respostasAleatorias = [
       "Entendi, vou verificar isso.",
@@ -26,22 +48,23 @@ document.addEventListener('DOMContentLoaded', function () {
       "Sim, posso ajudar nisso."
     ];
 
-
     enviarBtn.addEventListener('click', function () {
       const texto = inputTexto.value.trim();
 
       if (texto) {
-
         criarMensagem(texto, 'enviada');
-
 
         inputTexto.value = '';
 
+        setTimeout(() => {
+            mostrarLoading();
+        }, 500);
 
         setTimeout(() => {
+          removerLoading();
           const respostaAleatoria = respostasAleatorias[Math.floor(Math.random() * respostasAleatorias.length)];
           criarMensagem(respostaAleatoria, 'recebida');
-        }, 1000);
+        }, 3000);
       }
     });
-  });
+});
