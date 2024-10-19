@@ -1,70 +1,53 @@
+const { mostrarLoading, removerLoading } = require('../js/loading');
+const digitar = require('../js/digitar');
+
 document.addEventListener('DOMContentLoaded', function () {
-    const inputTexto = document.getElementById('inputTexto');
-    const enviarBtn = document.getElementById('enviarBtn');
+    const inputTexto = document.getElementById('inputPrincipal');
+    const btnEnviar = document.getElementById('btnEnviar');
     const respostaChat = document.getElementById('respostaChat');
 
-    // Função para criar uma mensagem no chat
-    function criarMensagem(conteudo, tipo) {
-      const novaMensagem = document.createElement('div');
-      novaMensagem.classList.add('mensagem', tipo);
-      novaMensagem.textContent = conteudo;
-      respostaChat.appendChild(novaMensagem);
-      rolarParaBaixo();
-    }
+    inputTexto.addEventListener('input', () => {
+        btnEnviar.disabled = inputTexto.value.trim() === '';
+    });
 
-    function rolarParaBaixo() {
-      respostaChat.scrollTop = respostaChat.scrollHeight;
-    }
-
-    function mostrarLoading() {
-        const loadingContainer = document.createElement('div');
-        loadingContainer.classList.add('mensagem', 'recebida');
-        loadingContainer.id = 'loading-container';
-
-        const loadingIcon = document.createElement('img');
-        loadingIcon.src = '../../public/loading.svg';
-        loadingIcon.alt = 'Loading...';
-        loadingIcon.style.width = '1rem';
-        loadingIcon.style.height = '1rem';
-
-        loadingContainer.appendChild(loadingIcon);
-        respostaChat.appendChild(loadingContainer);
-
-        rolarParaBaixo();
-    }
-
-    function removerLoading() {
-        const loadingContainer = document.getElementById('loading-container');
-        if (loadingContainer) {
-            loadingContainer.remove();
-        }
+    function enviarMensagem(conteudo, tipo) {
+        const novaMensagem = document.createElement('div');
+        novaMensagem.classList.add('mensagem', tipo);
+        novaMensagem.textContent = conteudo;
+        respostaChat.appendChild(novaMensagem);
+        respostaChat.scrollTop = respostaChat.scrollHeight;
     }
 
     const respostasAleatorias = [
-      "Entendi, vou verificar isso.",
-      "Isso faz sentido, continue.",
-      "Certo, qual o próximo passo?",
-      "Interessante, mais alguma coisa?",
-      "Sim, posso ajudar nisso."
+        "Entendi, vou verificar isso.",
+        "Isso faz sentido, continue.",
+        "Certo, qual o próximo passo?",
+        "Interessante, mais alguma coisa?",
+        "Sim, posso ajudar nisso."
     ];
 
-    enviarBtn.addEventListener('click', function () {
-      const texto = inputTexto.value.trim();
+    btnEnviar.addEventListener('click', function () {
+        const texto = inputTexto.value.trim();
 
-      if (texto) {
-        criarMensagem(texto, 'enviada');
+        if (texto) {
+            enviarMensagem(texto, 'enviada');
+            inputTexto.value = '';
+            btnEnviar.disabled = true;
 
-        inputTexto.value = '';
+            setTimeout(() => {
+                mostrarLoading();
+            }, 500);
 
-        setTimeout(() => {
-            mostrarLoading();
-        }, 500);
+            setTimeout(() => {
+                removerLoading();
+                const respostaAleatoria = respostasAleatorias[Math.floor(Math.random() * respostasAleatorias.length)];
 
-        setTimeout(() => {
-          removerLoading();
-          const respostaAleatoria = respostasAleatorias[Math.floor(Math.random() * respostasAleatorias.length)];
-          criarMensagem(respostaAleatoria, 'recebida');
-        }, 3000);
-      }
+                const novaMensagem = document.createElement('div');
+                novaMensagem.classList.add('mensagem', 'recebida');
+                respostaChat.appendChild(novaMensagem);
+
+                digitar(novaMensagem, respostaAleatoria, 10);
+            }, 3000);
+        }
     });
 });
