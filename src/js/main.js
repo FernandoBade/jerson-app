@@ -1,5 +1,12 @@
 const { mostrarLoading, removerLoading } = require('../js/loading');
 const digitar = require('../js/digitar');
+const query = require('../js/api');
+query({
+    "inputs": "What a lovelly fay!",
+    "options": {
+      "wait_for_model": true,
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     const inputTexto = document.getElementById('inputPrincipal');

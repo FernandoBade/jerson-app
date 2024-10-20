@@ -1,31 +1,37 @@
-document.getElementById('enviarBtn').addEventListener('click', () => {
-	const inputTexto = document.getElementById('inputTexto').value;
-	const respostaChat = document.getElementById('respostaChat');
+require('dotenv').config();
 
-	// Substitua pela sua API Key e endpoint para integração com GPT
-	const apiKey = 'SUA_API_KEY_AQUI';
-	const url = 'https://api.openai.com/v1/completions';
+const API_URL = process.env.API_URL;
+const API_KEY = process.env.API_KEY;
 
-	const dados = {
-		model: 'text-davinci-003',
-		prompt: inputTexto,
-		max_tokens: 100
-	};
+console.log(API_KEY, API_URL);
 
-	fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			Authorization: `Bearer ${apiKey}`
-		},
-		body: JSON.stringify(dados)
-	})
-		.then((response) => response.json())
-		.then((data) => {
-			respostaChat.textContent = data.choices[0].text;
-		})
-		.catch((error) => {
-			respostaChat.textContent = 'Erro ao comunicar com o servidor.';
-			console.error('Erro:', error);
-		});
-});
+async function query(data) {
+	const response = await fetch(
+		API_URL,
+		{
+			headers: {
+				"Authorization": `Bearer ${API_KEY}`,
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return console.log(result[0]);
+}
+
+
+// const criterio = {
+//     "inputs": "Qual a capital do Brasil?",
+//     "options": {
+//       "wait_for_model": true,
+//     }
+// }
+
+
+// query(criterio).then((response) => {
+// 	console.log(JSON.stringify(response, null, 2));
+// });
+
+module.exports = query;

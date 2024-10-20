@@ -12,6 +12,8 @@
 	"license": "ISC",
 	"description": "Jerson App",
 	"dependencies": {
+		"@huggingface/inference": "^2.8.1",
+		"dotenv": "^16.4.5",
 		"electron": "^32.2.0",
 		"lucide": "^0.452.0"
 	},
